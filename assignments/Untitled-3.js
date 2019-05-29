@@ -33,7 +33,7 @@ function GameObject(gameObjectAttributes) {
   this.dimensions = gameObjectAttributes.dimensions;
 }
 
-// Method from the GameObject  function constructor
+//Method from the GameObject  function constructor
 GameObject.prototype.destroy = function () {
   return `${this.name} was removed from the game.`;
 }
@@ -45,9 +45,8 @@ GameObject.prototype.destroy = function () {
 * takeDamage() // prototype method -> returns the string '<object name> took damage.'
 * should inherit destroy() from GameObject's prototype
 */
-class CharacterStats extends GameObject {
+class CharacterStats {
   constructor(characterStatsAttributes) {
-    super(characterStatsAttributes)
     this.healthPoints = characterStatsAttributes.healthPoints;
     this.createdAt = characterStatsAttributes.createdAt;
     this.name = characterStatsAttributes.name;
@@ -59,6 +58,13 @@ class CharacterStats extends GameObject {
   }
 }
 
+// extend
+// class CharacterStats extends GameObject {
+//   constructor(characterStatsAttributes) {
+// super(characterStatsAttributes)
+//   }
+// }
+
 // function CharacterStats(characterStatsAttributes) {
 //   // console.log(characterStatsAttributes);
 //   // Inhertance step 2 ↓
@@ -69,7 +75,7 @@ class CharacterStats extends GameObject {
 //   this.dimensions = characterStatsAttributes.dimensions;
 // }
 
-// Inheritance step 3 ↓  SUPER
+// Inheritance step 3 ↓
 //This sets up the _proto_ to inherit the prototype from GameObject
 // CharacterStats.prototype = Object.create(GameObject.prototype);
 
@@ -89,9 +95,8 @@ class CharacterStats extends GameObject {
 * should inherit takeDamage() from CharacterStats
 */
 
-class Humanoid extends CharacterStats {
+class Humanoid {
   constructor(humanoidAttributes) {
-    super(humanoidAttributes)
     this.team = humanoidAttributes.team;
     this.weapons = humanoidAttributes.weapons;
     this.language = humanoidAttributes.language;
@@ -103,6 +108,12 @@ class Humanoid extends CharacterStats {
   // Methods
   greet() {
     return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
+class Humanoid extends CharacterStats {
+  constructor(characterStatsAttributes) {
+    super(characterStatsAttributes)
   }
 }
 
@@ -118,7 +129,7 @@ class Humanoid extends CharacterStats {
 //   this.healthPoints = humanoidAttributes.healthPoints;
 // }
 
-// Inheritance step 3 ↓  SUPER
+// Inheritance step 3 ↓
 //This sets up the _proto_ to inherit the prototype from CharacterStats
 // Humanoid.prototype = Object.create(CharacterStats.prototype);
 
@@ -199,3 +210,94 @@ console.log(archer.language); // Elvish
 console.log(archer.greet()); // Lilith offers a greeting in Elvish.
 console.log(mage.takeDamage()); // Bruce took damage.
 console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+
+
+// Stretch task: 
+// * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
+// * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
+// * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+/*
+// Villain constructor function
+function Villian(villianAttributes) {
+  Humanoid.call(this, villianAttributes)
+  this.team - villianAttributes
+}
+
+Villian.prototype = Object.create(Humanoid.prototype);
+
+// Villian method
+Villian.prototype.slash = function (target) {
+  target.healthPoints -= Math.floor(Math.random() * 5 + 1);
+  if (target.healthPoints <= 0) {
+    return `You have butchered ${target.name}! ${target.name} has been removed from the game.`
+  } else {
+    return `You have slashed ${target.name}! ${target.name} now has ${target.healthPoints} health points remaining!`
+  }
+}
+
+
+// Hero constructor function
+function Hero(heroAttributes) {
+  Humanoid.call(this, heroAttributes)
+}
+
+Hero.prototype = Object.create(Humanoid.prototype)
+
+// Hero method
+Hero.prototype.pierce = function (target) {
+  target.healthPoints -= Math.floor(Math.random() * 5 + 1);;
+  if (target.healthPoints <= 0) {
+    return `You have killed ${target.name}! ${target.name} has been removed from the game.`
+  } else {
+    return `You have pierced ${target.name}! ${target.name} now has ${target.healthPoints} health points remaining!`
+  }
+}
+
+// Villian Object
+const villianOrc = new Villian({
+  createdAt: new Date(),
+  dimensions: {
+    length: 1,
+    width: 2,
+    height: 4,
+  },
+  healthPoints: 10,
+  name: 'Bashnag',
+  team: 'Forest Kingdom',
+  weapons: [
+    'Axe',
+    'Dagger',
+  ],
+  language: 'Orcish',
+})
+
+//Hero Object
+const heroHuman = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 1,
+    width: 2,
+    height: 4,
+  },
+  healthPoints: 10,
+  name: 'Scipio',
+  team: 'Desert Kingdom',
+  weapons: [
+    'Sword',
+    'Shield',
+  ],
+  language: 'Humanish',
+})
+*/
+
+// console.log(villianOrc.slash(heroHuman))
+// console.log(heroHuman.pierce(villianOrc))
+// console.log(villianOrc.slash(heroHuman))
+// console.log(heroHuman.pierce(villianOrc))
+// console.log(villianOrc.slash(heroHuman))
+// console.log(heroHuman.pierce(villianOrc))
+// console.log(villianOrc.slash(heroHuman))
+// console.log(heroHuman.pierce(villianOrc))
+// console.log(villianOrc.slash(heroHuman))
+// console.log(heroHuman.pierce(villianOrc))
