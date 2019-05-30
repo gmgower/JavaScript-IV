@@ -7,13 +7,13 @@ class Person {
     this.age = attributes.age;
     this.location = attributes.location;
   }
-
+// Methods
   speak() {
     return `Hello my name is ${this.name}, I am from ${this.location}`
   }
 }
 
-//Person
+//Person Objects
 const fred = new Person({
   age: 35,
   name: 'Fred',
@@ -41,6 +41,7 @@ class Instructor extends Person {
     this.favLanguage = attributes.favLanguage;
     this.catchPhrase = attributes.catchPhrase;
   }
+// Methods
   demo(subject) {
     return `Today we are learning about ${subject}`
   }
@@ -49,7 +50,7 @@ class Instructor extends Person {
   }
 }
 
-//Instructor
+//Instructor Objects
 const halle = new Instructor({
   age: 39,
   name: 'Halle',
@@ -86,6 +87,7 @@ class Student extends Person {
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects
   }
+// Methods
   listsSubjects() {
     this.favSubjects.map(function (favSubject) {
       console.log(favSubject);
@@ -103,6 +105,7 @@ class Student extends Person {
   }
 }
 
+// Student objects
 const david = new Student({
   age: 31,
   name: 'David',
@@ -133,6 +136,7 @@ class ProjectManager extends Instructor {
     this.gradClassName = attributes.gradClassName;
     this.favInstructor = attributes.favInstructor;
   }
+// Methods
   standUp(channel) {
     return `${this.name} announces to ${channel}, @channel standy times!`
   }
@@ -141,6 +145,7 @@ class ProjectManager extends Instructor {
   }
 }
 
+// Project Manager Objects
 const john = new ProjectManager({
   age: 27,
   name: 'John',
