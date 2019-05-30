@@ -185,3 +185,4 @@ console.log(katy.speak())
 // console.log(john.standUp())
 // console.log(salma.debugsCode())
 // console.log(john.favLanguage)
+// g
