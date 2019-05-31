@@ -1,8 +1,8 @@
 // CODE here for your Lambda Classes// Step 1
 class Person {
   constructor(attributes) {
-    console.log(attributes);
-    console.log(this)
+    // console.log(attributes);
+    // console.log(this)
     this.name = attributes.name;
     this.age = attributes.age;
     this.location = attributes.location;
@@ -32,8 +32,8 @@ console.log(fred.speak())
 class Instructor extends Person {
   constructor(attributes) {
     super(attributes)
-    console.log(attributes);
-    console.log(this)
+    // console.log(attributes);
+    // console.log(this)
     this.name = attributes.name;
     this.age = attributes.age;
     this.location = attributes.location;
@@ -78,8 +78,8 @@ console.log(halle.demo('Flexbox'))
 class Student extends Person {
   constructor(attributes) {
     super(attributes)
-    console.log(attributes);
-    console.log(this);
+    // console.log(attributes);
+    // console.log(this);
     this.name = attributes.name;
     this.age = attributes.age;
     this.location = attributes.location;
@@ -131,8 +131,8 @@ console.log(katy.sprintChallenge('CSS-II'))
 class ProjectManager extends Instructor {
   constructor(attributes) {
     super(attributes);
-    console.log(attributes);
-    console.log(this)
+    // console.log(attributes);
+    // console.log(this)
     this.gradClassName = attributes.gradClassName;
     this.favInstructor = attributes.favInstructor;
   }
